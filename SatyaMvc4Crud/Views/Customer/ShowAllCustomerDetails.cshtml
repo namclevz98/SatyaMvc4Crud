@@ -1,0 +1,120 @@
+﻿@model SatyaMvc4Crud.Models.Customer
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowAllCustomerDetails</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+</head>
+<body>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <div class="container">
+
+
+        <h2 style="text-align:center">SATYAPRAKASH's MVC Customer CRUD Operation</h2>
+        <a class="btn btn-primary btn-sm" href="/Customer/InsertCustomer">
+            <i class="fa fa-plus-circle"></i> New Customer
+        </a>
+        </p>
+        <br />
+        <br />
+        <table class="table table-striped table-hover table-bordered" align="center">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Address)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Mobileno)
+                    </th>
+                    <th sscope="col">
+                        @Html.DisplayNameFor(model => model.Birthdate)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.EmailID)
+                    </th>
+                    <th scope="col">
+                        Operation
+                    </th>
+                </tr>
+            </thead>
+
+
+            @foreach (var item in Model.ShowallCustomer)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Mobileno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Birthdate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmailID)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Modify", "Edit", new { id = item.CustomerID }, new { @class = "btn btn-success" }) |
+                        @Html.ActionLink("Detail", "Details", new { id = item.CustomerID }, new { @class = "btn btn-info" }) |
+                        @Html.ActionLink("Remove", "Delete", new { id = item.CustomerID },
+                        new { @class = "btn btn-danger", onclick = "return confirm('Are sure wants to delete?');" })
+                    </td>
+                </tr>
+
+            }
+        </table>
+        @if (TempData["result1"] != null)
+        {
+            <script type="text/javascript">
+
+                alert("Record Is Inserted Successfully");
+            </script>
+
+        }
+        @if (TempData["result2"] != null)
+        {
+            <script type="text/javascript">
+
+                alert("Record Is Updated Successfully");
+            </script>
+
+        }
+        @if (TempData["result3"] != null)
+        {
+            <script type="text/javascript">
+
+                alert("Record Is Deleted Successfully");
+            </script>
+
+        }
+        <br />
+        <br />
+        <footer>
+            <p style="text-align:center">© @DateTime.Now.ToLocalTime()</p>
+        </footer>
+    </div>
+        </>
+</body>
+</html>
+@{
+    ViewBag.Title = "ShowAllCustomerDetails";
+}
+
+
+
