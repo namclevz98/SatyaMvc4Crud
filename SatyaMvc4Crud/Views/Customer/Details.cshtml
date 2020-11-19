@@ -10,8 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="~/Content/Style.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -19,65 +18,65 @@
     <script src="~/Scripts/jquery-1.7.1.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <div class="title">
-    </div>
-    <div class="content">
-        
-            <div class="view">
-                <div class="container">
+    <header>
+        <p style="text-align:center; background-color:cornflowerblue; color:white; ">List Customer</p>
+    </header>
+    <div class="container">
+            <div class="row">
+                <div class="col-md-3" style="text-align:right">
+                    @Html.ActionLink("List Customer", "ShowAllCustomerDetails", "Customer")
+                    <br />
+                    @Html.ActionLink("New Customer", "InsertCustomer", "Customer")
+                </div>
+                <div class="col-md-9">
+                    <strong style="color:forestgreen;font-size:xx-large "> Customer</strong>
+                    <hr />
                     <div class="row">
-                        <div class="col-md-9">
-                            <h4> Customer's Detail</h4>
-                            <hr />
-                            <div class="row">
-                                <div class="col-md-2">
-                                    @Html.LabelFor(model => model.Name)
-                                </div>
-                                <div class="col-md-10">
-                                    @Html.DisplayFor(model => model.Name)
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-2">
-                                    @Html.LabelFor(model => model.Address)
-                                </div>
-                                <div class="col-md-10">
-                                    @Html.DisplayFor(model => model.Address)
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    @Html.LabelFor(model => model.Mobileno)
-                                </div>
-                                <div class="col-md-10">
-                                    @Html.DisplayFor(model => model.Mobileno)
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    @Html.LabelFor(model => model.Birthdate)
-                                </div>
-                                <div class="col-md-10">
-                                    @Html.DisplayFor(model => model.Birthdate)
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-2">
-                                    @Html.LabelFor(model => model.EmailID)
-                                </div>
-                                <div class="col-md-10">
-                                    @Html.DisplayFor(model => model.EmailID)
-                                </div>
-                            </div>
-                            @Html.ActionLink("Back to Customer Records", "ShowAllCustomerDetails", null, new { @class = "btn btn-info" })
-
+                        <div class="col-md-2">
+                            @Html.NameFor(model=> model.Name)
+                        </div>
+                        <div class="col-md-10">
+                            @Html.DisplayFor(model => model.Name)
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            @Html.NameFor(model => model.Address)
+                        </div>
+                        <div class="col-md-10">
+                            @Html.DisplayFor(model => model.Address)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            @Html.NameFor(model => model.Mobileno)
+                        </div>
+                        <div class="col-md-10">
+                            @Html.DisplayFor(model => model.Mobileno)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            @Html.NameFor(model => model.Birthdate)
+                        </div>
+                        <div class="col-md-10">
+                            @Html.DisplayFor(model => model.Birthdate)
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            @Html.NameFor(model => model.EmailID)
+                        </div>
+                        <div class="col-md-10">
+                            @Html.DisplayFor(model => model.EmailID)
+                        </div>
+                    </div>
+                    @Html.ActionLink("Back to Customer Records", "ShowAllCustomerDetails", null, new { @class = "btn btn-success" })
+
                 </div>
             </div>
-        
-    </div>
+        </div>
 </body>
 </html>   

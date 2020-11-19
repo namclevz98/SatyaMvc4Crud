@@ -10,8 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="~/Content/Style.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -19,9 +18,10 @@
     <script src="~/Scripts/jquery-1.7.1.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <div class="title">
-    </div>
-    <div class="content">
+    <header>
+        <p style="text-align:center; background-color:cornflowerblue; color:white; ">List Customer</p>
+    </header>
+    <div class="container">
         @using (Html.BeginForm())
         {
             @Html.ValidationSummary(true)
@@ -29,12 +29,17 @@
             <div class="view">
                 <div class="container">
                     <div class="row">
+                        <div class="col-md-3" style="text-align:right">
+                            @Html.ActionLink("List Customer", "ShowAllCustomerDetails", "Customer")
+                            <br />
+                            @Html.ActionLink("New Customer", "InsertCustomer", "Customer")
+                        </div>
                         <div class="col-md-9">
-                            <h4> Update Customer</h4>
+                            <strong style="color:forestgreen;font-size:xx-large "> Customer</strong>
                             <hr />
                             <div class="row">
                                 <div class="col-md-2">
-                                    @Html.LabelFor(model => model.Name)
+                                    @Html.NameFor(model => model.Name)
                                 </div>
                                 <div class="col-md-10">
                                     @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Name" })
@@ -44,7 +49,7 @@
 
                             <div class="row">
                                 <div class="col-md-2">
-                                    @Html.LabelFor(model => model.Address)
+                                    @Html.NameFor(model => model.Address)
                                 </div>
                                 <div class="col-md-10">
                                     @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @placeholder = "Address" })
@@ -53,7 +58,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-2">
-                                    @Html.LabelFor(model => model.Mobileno)
+                                    @Html.NameFor(model => model.Mobileno)
                                 </div>
                                 <div class="col-md-10">
                                     @Html.TextBoxFor(model => model.Mobileno, new { @class = "form-control", @placeholder = "Home Phone" })
@@ -62,7 +67,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-2">
-                                    @Html.LabelFor(model => model.Birthdate)
+                                    @Html.NameFor(model => model.Birthdate)
                                 </div>
                                 <div class="col-md-10">
                                     @Html.TextBoxFor(model => model.Birthdate, new { @class = "form-control", @type = "date" })
@@ -72,14 +77,15 @@
 
                             <div class="row">
                                 <div class="col-md-2">
-                                    @Html.LabelFor(model => model.EmailID)
+                                    @Html.NameFor(model => model.EmailID)
                                 </div>
                                 <div class="col-md-10">
                                     @Html.TextBoxFor(model => model.EmailID, new { @class = "form-control", @placeholder = "EmailID" })
                                     @Html.ValidationMessageFor(model => model.EmailID)
                                 </div>
                             </div>
-                             <input type="submit" value="Save" class="btn btn-success" />
+                            <br />
+                            <input type="submit" value="Save" class="btn btn-success" />
                             @Html.ActionLink("Back to Customer Records", "ShowAllCustomerDetails", null, new { @class = "btn btn-info" })
                         </div>
                     </div>
