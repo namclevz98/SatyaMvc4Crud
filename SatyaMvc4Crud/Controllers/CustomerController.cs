@@ -26,7 +26,7 @@ namespace SatyaMvc4Crud.Controllers
             {
                 DataAccessLayer objDB = new DataAccessLayer();
                 string result = objDB.InsertData(objCustomer);
-                TempData["result1"] = result;
+                TempData["insertedSuccess"] = result;
                 ModelState.Clear();
                 return RedirectToAction("ShowAllCustomerDetails");
             }
@@ -72,7 +72,7 @@ namespace SatyaMvc4Crud.Controllers
             {
                 DataAccessLayer objDB = new DataAccessLayer();
                 string result = objDB.UpdateData(objCustomer);
-                TempData["result2"] = result;
+                TempData["updatedSuccess"] = result;
                 ModelState.Clear();
                 return RedirectToAction("ShowAllCustomerDetails");
             }
@@ -88,7 +88,7 @@ namespace SatyaMvc4Crud.Controllers
         {
             DataAccessLayer objDB = new DataAccessLayer();
             int result = objDB.DeleteData(ID);
-            TempData["result3"] = result;
+            TempData["deletedSuccess"] = result;
             ModelState.Clear();
             return RedirectToAction("ShowAllCustomerDetails");
         }
